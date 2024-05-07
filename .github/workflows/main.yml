@@ -1,0 +1,26 @@
+name: PyTorch Hello World CI/CD
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Set up Python and PyTorch dependencies
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      # Step 2: Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install torch torchvision -f requirements.txt
+
+      # Step 3: Run a simple PyTorch script
+      - name: Run Hello World
+        run: |
+          python -m torch.jit script.pt
