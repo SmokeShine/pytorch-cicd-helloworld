@@ -28,7 +28,7 @@ jobs:
       # Step 3: Run a simple PyTorch script
       - name: Run Hello World
         run: |
-          python -m torch.jit script.pt
+          python script.py
 ```
 1. Create a new file named script.py in your project's root directory with the following content:
 ```
